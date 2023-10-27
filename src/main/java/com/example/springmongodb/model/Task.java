@@ -6,6 +6,10 @@ import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
+
+import java.lang.annotation.Target;
 
 @Document(collation = "tasks")
 @Data
@@ -14,7 +18,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Task {
 
     @Id
-    private Long taskId;
+    @Field(targetType = FieldType.STRING)
+    private String taskId;
     private String description;
     private String severity;
     private String assignee;
